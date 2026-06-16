@@ -1,0 +1,843 @@
+@import "tailwindcss";
+
+@plugin "daisyui" {
+    themes: dark --default, light --prefersdark, cirna;
+}
+
+/* Tema do site institucional público (claro, marca Cirna em vermelho). */
+@plugin "daisyui/theme" {
+    name: "cirna";
+    default: false;
+    prefersdark: false;
+    color-scheme: "light";
+    --color-base-100:          #ffffff;
+    --color-base-200:          #f4f6f9;
+    --color-base-300:          #e5e9ef;
+    --color-base-content:      #1f2733;
+    --color-primary:           #cf1626;
+    --color-primary-content:   #ffffff;
+    --color-secondary:         #1f2937;
+    --color-secondary-content: #ffffff;
+    --color-accent:            #0c4f6f;
+    --color-accent-content:    #ffffff;
+    --color-neutral:           #111827;
+    --color-neutral-content:   #f3f4f6;
+    --color-info:              #0c4f6f;
+    --color-info-content:      #ffffff;
+    --color-success:           #16a34a;
+    --color-success-content:   #ffffff;
+    --color-warning:           #d97706;
+    --color-warning-content:   #ffffff;
+    --color-error:             #cf1626;
+    --color-error-content:     #ffffff;
+    --radius-selector: 0.5rem;
+    --radius-field: 0.5rem;
+    --radius-box: 1rem;
+    --size-selector: 0.25rem;
+    --size-field: 0.25rem;
+    --border: 1px;
+    --depth: 1;
+    --noise: 0;
+}
+
+@plugin "daisyui/theme" {
+    name: "dark";
+    default: true;
+    prefersdark: false;
+    color-scheme: "dark";
+    --color-base-100:          #0b1220;
+    --color-base-200:          #0f172a;
+    --color-base-300:          #1f2937;
+    --color-base-content:      #e2e8f0;
+    --color-primary:           #0c4f6f;
+    --color-primary-content:   #e6f4f9;
+    --color-secondary:         #ff7b33;
+    --color-secondary-content: #1a0d06;
+    --color-accent:            #22d3ee;
+    --color-accent-content:    #04111b;
+    --color-neutral:           #0f172a;
+    --color-neutral-content:   #e2e8f0;
+    --color-info:              #38bdf8;
+    --color-info-content:      #04111b;
+    --color-success:           #22c55e;
+    --color-success-content:   #04110b;
+    --color-warning:           #fbbf24;
+    --color-warning-content:   #2a1600;
+    --color-error:             #f87171;
+    --color-error-content:     #2a0404;
+    --radius-selector: 0.5rem;
+    --radius-field: 0.5rem;
+    --radius-box: 1rem;
+    --size-selector: 0.25rem;
+    --size-field: 0.25rem;
+    --border: 1px;
+    --depth: 1;
+    --noise: 0;
+}
+
+
+@source "../../vendor/robsontenorio/mary/src/View/Components/**/*.php";
+@custom-variant dark (&:where(.dark, .dark *));
+@source "../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php";
+@source "../../storage/framework/views/*.php";
+@source "../**/*.blade.php";
+@source "../**/*.js";
+@source "../**/*.vue";
+
+hr {
+    @apply border-t border-t-base-300/80
+}
+
+/* Global UI standards (admin layout) */
+.drawer-content {
+    --panel-padding-sm: 1rem;
+    --panel-padding: 1.25rem;
+    --panel-padding-lg: 1.5rem;
+}
+
+.drawer-content .card,
+.drawer-content .stats,
+.drawer-content .modal-box,
+.drawer-content .alert {
+    border-radius: 1rem;
+}
+
+.drawer-content .card {
+    padding: var(--panel-padding-sm);
+}
+
+@media (min-width: 640px) {
+    .drawer-content .card {
+        padding: var(--panel-padding);
+    }
+}
+
+@media (min-width: 1024px) {
+    .drawer-content .card {
+        padding: var(--panel-padding-lg);
+    }
+}
+
+.drawer-content .card > .pb-5 {
+    padding-bottom: 0.75rem;
+}
+
+@media (min-width: 640px) {
+    .drawer-content .card > .pb-5 {
+        padding-bottom: 1rem;
+    }
+}
+
+.drawer-content .card > .pb-5 .text-xl {
+    @apply text-lg sm:text-xl;
+}
+
+/* Make the pagination summary text white inside maryUI tables */
+/* .mary-table-pagination p {
+    color: #ffffff !important;
+}
+
+body > div:nth-child(4) > div > div > div > div > div.grid > div.font-bold {
+    color: #FFFFFF;
+}
+
+body > div:nth-child(4) > div > div > div > div > div.hidden.sm\:inline-block {
+    color: #FFFFFF;
+} */
+
+html[data-theme="light"] .mary-table-pagination {
+    p {
+        @apply text-base-content/70;
+    }
+
+    button, span {
+        @apply text-xs border-none;
+        @apply text-base-content/70;
+    }
+
+    button {
+        @apply cursor-pointer;
+    }
+    span > span {
+        @apply bg-base-100 border border-base-300/70 rounded-md px-2;
+    }
+
+    span > button {
+        @apply bg-base-100 border border-base-300/70 rounded-md px-2;
+    }
+
+    span[aria-current="page"] > span {
+        @apply bg-primary text-primary-content border-primary;
+    }
+
+
+}
+
+html[data-theme="dark"] .mary-table-pagination p {
+    @apply text-white;
+}
+
+html[data-theme="dark"] .mary-table-pagination nav .inline-flex {
+    background-color: var(--color-base-300);
+    border: 1px solid color-mix(in srgb, var(--color-base-content) 18%, transparent);
+    border-radius: 0;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+}
+
+html[data-theme="dark"] .mary-table-pagination {
+    border: none;
+}
+
+html[data-theme="dark"] .mary-table-pagination nav .inline-flex > span > span,
+html[data-theme="dark"] .mary-table-pagination nav .inline-flex > span > a,
+html[data-theme="dark"] .mary-table-pagination nav .inline-flex > span > button {
+    background-color: var(--color-base-300) !important;
+    border-color: var(--color-base-300) !important;
+    color: var(--color-base-content) !important;
+}
+
+html[data-theme="dark"] .mary-table-pagination nav .inline-flex > span > span,
+html[data-theme="dark"] .mary-table-pagination nav .inline-flex > span > a,
+html[data-theme="dark"] .mary-table-pagination nav .inline-flex > span > button {
+    border-right: 1px solid color-mix(in srgb, var(--color-base-content) 18%, transparent);
+}
+
+html[data-theme="dark"] .mary-table-pagination nav .inline-flex > span:last-child > span,
+html[data-theme="dark"] .mary-table-pagination nav .inline-flex > span:last-child > a,
+html[data-theme="dark"] .mary-table-pagination nav .inline-flex > span:last-child > button {
+    border-right: none;
+}
+
+html[data-theme="dark"] .mary-table-pagination nav .inline-flex > span > a:hover,
+html[data-theme="dark"] .mary-table-pagination nav .inline-flex > span > button:hover {
+    background-color: color-mix(in srgb, var(--color-base-300) 70%, var(--color-base-200)) !important;
+    color: var(--color-base-content) !important;
+}
+
+html[data-theme="dark"] .mary-table-pagination nav .inline-flex span[aria-current="page"] > span {
+    background-color: var(--color-primary) !important;
+    border-color: var(--color-primary) !important;
+    color: var(--color-primary-content) !important;
+}
+
+.app-navbar {
+    width: 100% !important;
+    padding: 0 !important;
+    min-height: 64px !important;
+    height: 64px !important;
+}
+
+.dashboard-panel {
+    height: 22rem;
+}
+
+.dashboard-panel > .grow-1 {
+    flex: 1 1 auto;
+    min-height: 0;
+    display: flex;
+}
+
+.dashboard-panel-body {
+    @apply flex-1 min-h-0;
+}
+
+.menu-brand {
+    height: 60px !important;
+}
+
+.bg-login-background {
+    background-image: url('../images/login-background.png');
+}
+
+/* Toasts: force white text for better contrast */
+.toast, .mary-toast {
+    color: #ffffff !important;
+    border-radius: 0 !important;
+}
+.toast *, .mary-toast * {
+    color: #ffffff !important;
+}
+
+/* Toast progress bar integration */
+.toast progress,
+.mary-toast progress {
+    margin-top: -8px !important;
+    border-radius: 0 0 0.5rem 0.5rem !important;
+}
+
+.toast .alert, .mary-toast .alert {
+    border-radius: 0.5rem 0.5rem 0 0 !important;
+}
+
+.checkbox {
+    border-radius: 0 !important;
+}
+
+/* Mary Choices: align height with inputs */
+.choices-field {
+    height: 2.75rem !important;
+    min-height: 2.75rem !important;
+    padding-block: 0.55rem !important;
+    padding-inline-start: 1rem !important;
+    padding-inline-end: 1.75rem !important;
+}
+
+.choices-field > div.w-full {
+    min-height: 2.75rem !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    display: flex;
+    align-items: center;
+}
+
+/* Forms & inputs */
+label {
+    @apply font-semibold text-base-content/80;
+}
+
+input[type],
+select,
+textarea,
+.input,
+.select,
+.textarea {
+    border: 1px solid var(--color-base-300);
+    color: var(--color-base-content);
+    box-shadow: none !important;
+    -webkit-appearance: none;
+    outline: none;
+    background-clip: padding-box;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+input[type],
+select,
+textarea {
+    background-color: var(--color-base-100) !important;
+}
+
+.input,
+.select,
+.textarea {
+    background-color: var(--color-base-100);
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: color-mix(in srgb, var(--color-base-content) 40%, transparent);
+}
+
+/* Remove inner borders from Mary UI inputs (wrapper + inner input) */
+.input,
+.select,
+.textarea {
+    box-shadow: none !important;
+}
+
+.input:focus,
+.input:focus-within,
+.select:focus,
+.select:focus-within,
+.textarea:focus,
+.textarea:focus-within {
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+.input input,
+.input select,
+.input textarea {
+    border: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    padding: 0 !important;
+}
+
+.select select {
+    border: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    outline: none !important;
+    appearance: none;
+}
+
+select option {
+    background-color: #0b1220;
+    color: #e2e8f0;
+    padding: 0.6rem 0.9rem;
+}
+
+select optgroup {
+    background-color: #0f172a;
+    color: #e2e8f0;
+    padding: 0.6rem 0.9rem;
+}
+
+/* Make inputs slightly thicker with padding (default sizes only) */
+.input:not(.input-xs):not(.input-sm):not(.input-lg):not(.input-xl),
+.textarea:not(.textarea-xs):not(.textarea-sm):not(.textarea-lg):not(.textarea-xl) {
+    height: auto;
+    min-height: 2.75rem;
+    padding-block: 0.55rem;
+    padding-inline: 0.9rem;
+}
+
+/* Selects keep DaisyUI padding math (inner select uses negative margins) */
+.select:not(.select-xs):not(.select-sm):not(.select-lg):not(.select-xl) {
+    height: auto;
+    min-height: 2.75rem;
+    padding-block: 0.55rem;
+    padding-inline-start: 1rem;
+    padding-inline-end: 1.75rem;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+.input:focus,
+.select:focus,
+.textarea:focus {
+    outline: none;
+    box-shadow: none;
+    border-color: color-mix(in srgb, var(--color-primary) 55%, transparent);
+    background-color: color-mix(in srgb, var(--color-base-200) 70%, var(--color-base-100) 30%);
+}
+
+.input:focus-within,
+.select:focus-within,
+.textarea:focus-within {
+    border-color: color-mix(in srgb, var(--color-primary) 60%, transparent);
+    box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-primary) 25%, transparent);
+}
+
+input[type="color"] {
+    padding: 0.25rem;
+}
+
+input[type="color"]::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+
+input[type="color"]::-webkit-color-swatch {
+    border: none;
+    border-radius: 0.375rem;
+}
+
+input[type="color"]::-moz-color-swatch {
+    border: none;
+    border-radius: 0.375rem;
+}
+
+.form-section {
+    @apply space-y-4;
+}
+
+.form-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 gap-4;
+}
+
+html[data-theme="light"] .modal-box {
+    @apply bg-base-100 border border-base-300/80 rounded-2xl;
+}
+
+html[data-theme="dark"] .modal-box {
+    @apply bg-base-100 border border-base-300/70 rounded-2xl;
+}
+
+.modal-box {
+    padding: 1.25rem;
+    position: relative;
+}
+
+.modal-panel {
+    position: relative;
+}
+
+@media (min-width: 640px) {
+    .modal-box {
+        padding: 1.5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .modal-box {
+        padding: 1.75rem;
+    }
+}
+
+.modal .modal-action {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: stretch;
+}
+
+@media (min-width: 640px) {
+    .modal .modal-action {
+        flex-direction: row;
+        justify-content: flex-end;
+    }
+}
+
+html[data-theme="dark"] .modal-backdrop {
+    background-color: rgba(2, 6, 23, 0.7);
+    backdrop-filter: blur(4px);
+}
+
+/* Modal close button */
+.modal-close,
+.modal-box form[method=dialog] .btn-circle {
+    position: absolute;
+    inset-block-start: 1rem;
+    inset-inline-end: 1rem;
+    z-index: 10;
+    width: 2rem;
+    height: 2rem;
+    min-height: 2rem;
+    padding: 0;
+    font-size: 1rem;
+    line-height: 1;
+    background-color: color-mix(in srgb, var(--color-base-200) 70%, transparent) !important;
+    border: 1px solid color-mix(in srgb, var(--color-base-300) 70%, transparent) !important;
+    color: var(--color-base-content) !important;
+    box-shadow: none !important;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.modal-close:hover,
+.modal-box form[method=dialog] .btn-circle:hover {
+    background-color: color-mix(in srgb, var(--color-base-300) 70%, transparent) !important;
+}
+
+.modal-close svg,
+.modal-box form[method=dialog] .btn-circle svg {
+    width: 1.125rem;
+    height: 1.125rem;
+}
+
+/* Surfaces: cards and containers */
+html[data-theme="light"] .card,
+html[data-theme="light"] .mary-card {
+    @apply bg-base-100 border border-base-300/80;
+}
+
+html[data-theme="light"] .card.bg-base-300,
+html[data-theme="light"] .mary-card.bg-base-300 {
+    background-color: var(--color-base-100) !important;
+}
+
+html[data-theme="light"] .mary-card > .bg-base-300 {
+    background-color: var(--color-base-100) !important;
+}
+
+html[data-theme="light"] .mary-card .page-header {
+    @apply px-2 sm:px-4 md:px-6 lg:px-8 xl:px-10 pt-2 sm:pt-4;
+}
+
+/* Tables: hover, zebra, header */
+html[data-theme="light"] .mary-table,
+html[data-theme="light"] .table {
+    @apply bg-base-100 text-base-content border border-base-300/80 shadow-sm;
+    @apply rounded-xl;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+html[data-theme="light"] .mary-table thead,
+html[data-theme="light"] .table thead {
+    @apply bg-base-200 text-base-content/70;
+}
+
+html[data-theme="light"] .mary-table tbody tr + tr,
+html[data-theme="light"] .table tbody tr + tr {
+    @apply border-t border-base-200;
+}
+
+html[data-theme="light"] .mary-table thead {
+    @apply text-base-content/80 border-b border-base-200;
+}
+
+html[data-theme="light"] .mary-table tbody tr:nth-child(odd),
+html[data-theme="light"] .table tbody tr:nth-child(odd) {
+    background-color: var(--color-base-100) !important;
+}
+
+html[data-theme="light"] .mary-table tbody tr:nth-child(even),
+html[data-theme="light"] .table tbody tr:nth-child(even) {
+    background-color: color-mix(in srgb, var(--color-base-200) 70%, transparent) !important;
+}
+
+html[data-theme="light"] .mary-table tbody tr:hover {
+    @apply bg-base-200/80;
+}
+
+/* Tables (dark theme) */
+html[data-theme="dark"] .mary-table,
+html[data-theme="dark"] .table {
+    @apply bg-base-100 text-base-content border border-base-300/60 shadow-sm;
+    @apply rounded-xl;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+html[data-theme="dark"] .mary-table thead,
+html[data-theme="dark"] .table thead {
+    @apply bg-base-200 text-base-content/70;
+}
+
+html[data-theme="dark"] .mary-table tbody tr + tr,
+html[data-theme="dark"] .table tbody tr + tr {
+    @apply border-t border-base-300/50;
+}
+
+html[data-theme="dark"] .mary-table tbody tr:nth-child(odd),
+html[data-theme="dark"] .table tbody tr:nth-child(odd) {
+    background-color: var(--color-base-100) !important;
+}
+
+html[data-theme="dark"] .mary-table tbody tr:nth-child(even),
+html[data-theme="dark"] .table tbody tr:nth-child(even) {
+    background-color: color-mix(in srgb, var(--color-base-200) 60%, transparent) !important;
+}
+
+html[data-theme="dark"] .mary-table tbody tr:hover,
+html[data-theme="dark"] .table tbody tr:hover {
+    @apply bg-base-200/70;
+}
+
+/* Listing actions: square buttons inside tables */
+.mary-table td .btn-circle,
+.table td .btn-circle {
+    border-radius: 0.375rem !important;
+}
+
+html[data-theme="light"] .badge-primary,
+html[data-theme="light"] .badge-secondary,
+html[data-theme="light"] .badge-accent,
+html[data-theme="light"] .badge-info,
+html[data-theme="light"] .badge-success,
+html[data-theme="light"] .badge-warning,
+html[data-theme="light"] .badge-error {
+    @apply text-white;
+}
+
+html[data-theme="light"] .btn.bg-primary,
+html[data-theme="light"] .btn.bg-secondary,
+html[data-theme="light"] .btn.bg-accent,
+html[data-theme="light"] .btn.bg-info,
+html[data-theme="light"] .btn.bg-success,
+html[data-theme="light"] .btn.bg-warning,
+html[data-theme="light"] .btn.bg-error {
+    @apply text-white;
+}
+
+.mary-table th,
+.mary-table td,
+.table th,
+.table td {
+    @apply align-middle text-sm;
+}
+
+.mary-table th,
+.table th {
+    @apply font-semibold text-xs uppercase tracking-wide;
+}
+
+.drawer-content .mary-table th,
+.drawer-content .mary-table td,
+.drawer-content .table th,
+.drawer-content .table td {
+    @apply px-3 py-2.5 sm:px-4 sm:py-3;
+}
+
+.mary-table td .btn,
+.table td .btn {
+    @apply btn-sm;
+}
+
+/* Quick actions */
+.quick-actions button {
+    @apply h-12 rounded-xl shadow-sm border border-base-100/20 flex items-center gap-2;
+}
+
+.quick-actions button:hover {
+    @apply bg-base-200/60;
+}
+
+/* Badges */
+.badge-success { @apply bg-success text-success-content; }
+.badge-warning { @apply bg-warning text-warning-content; }
+.badge-error   { @apply bg-error text-error-content; }
+.badge-ghost   { @apply bg-base-200 text-base-content; }
+
+html[data-theme="dark"] .badge-primary,
+html[data-theme="dark"] .badge-secondary,
+html[data-theme="dark"] .badge-accent,
+html[data-theme="dark"] .badge-info,
+html[data-theme="dark"] .badge-success,
+html[data-theme="dark"] .badge-warning,
+html[data-theme="dark"] .badge-error {
+    @apply text-white;
+}
+
+/* Overflow helpers */
+.no-scroll-x { @apply overflow-x-hidden; }
+.no-scroll { @apply overflow-hidden; }
+.min-w-0 { min-width: 0; }
+
+.sidebar-shell .menu li > a,
+.sidebar-shell .menu li > details > summary {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0.75rem 0.9rem;
+    border-radius: 0.75rem;
+    transition: all 0.2s ease;
+    margin: 0;
+    width: 100%;
+}
+
+.sidebar-shell .menu > li {
+    width: 100%;
+}
+
+/* Layout shells */
+.drawer-content {
+    background-color: var(--color-base-200);
+}
+
+.sidebar-shell .menu li > *.active {
+    background-color: color-mix(in srgb, var(--fallback-p, oklch(var(--p))) 16%, transparent);
+    color: var(--fallback-pc, var(--color-primary-content));
+    border: 1px solid color-mix(in srgb, var(--fallback-p, oklch(var(--p))) 30%, transparent);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.05);
+}
+
+.sidebar-shell .menu li > *:hover:not(.active) {
+    background-color: rgba(255, 255, 255, 0.03);
+}
+
+.sidebar-shell .menu li .menu-title {
+    padding-left: 0.5rem;
+    font-weight: 600;
+    color: var(--color-base-content);
+}
+
+.sidebar-shell {
+    border-right: 1px solid rgba(255,255,255,0.04);
+}
+
+/* Buttons & CTAs */
+.drawer-content .btn {
+    @apply font-semibold;
+}
+
+.drawer-content .btn-primary,
+.drawer-content .btn-secondary,
+.drawer-content .btn-accent,
+.drawer-content .btn-info,
+.drawer-content .btn-success,
+.drawer-content .btn-warning,
+.drawer-content .btn-error {
+    @apply text-white;
+}
+
+.drawer-content .btn-outline {
+    @apply border-base-content/20 text-base-content bg-base-100/30;
+}
+
+.drawer-content .btn-outline:hover {
+    @apply border-primary bg-primary/10 text-base-content;
+}
+
+.drawer-content .btn-ghost:hover {
+    @apply bg-base-200/60;
+}
+
+.drawer-content .btn:focus-visible {
+    outline: 2px solid color-mix(in srgb, var(--color-primary) 35%, transparent);
+    outline-offset: 2px;
+}
+
+.drawer-content .btn:disabled,
+.drawer-content .btn[disabled] {
+    @apply opacity-60 pointer-events-none;
+}
+
+.drawer-content .overflow-x-auto {
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Icons */
+.icon-sm { @apply w-4 h-4; }
+.icon-md { @apply w-5 h-5; }
+.icon-lg { @apply w-6 h-6; }
+
+@layer components {
+    .public-nav-link {
+        @apply font-sans text-sm lg:text-[0.95rem] font-semibold leading-6 tracking-wide text-base-content/70 transition-colors hover:text-primary;
+    }
+
+    .public-nav-link-active {
+        @apply text-primary;
+    }
+
+    .public-nav-link-mobile {
+        @apply font-sans text-base font-semibold leading-6 tracking-wide text-base-content/80 transition-colors hover:text-primary;
+    }
+}
+
+/* ----- Site institucional público ----- */
+[x-cloak] { display: none !important; }
+
+.site-shell {
+    scroll-behavior: smooth;
+}
+
+/* Animação suave de entrada de seções (respeita prefers-reduced-motion no bloco global acima). */
+@keyframes site-fade-up {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.site-reveal {
+    animation: site-fade-up 0.6s ease both;
+}
+
+/* Logos de clientes em escala de cinza que ganham cor no hover. */
+.client-logo {
+    filter: grayscale(100%);
+    opacity: 0.7;
+    transition: filter 0.25s ease, opacity 0.25s ease, transform 0.25s ease;
+}
+
+.client-logo:hover {
+    filter: grayscale(0);
+    opacity: 1;
+    transform: translateY(-2px);
+}
+
+/* Gradiente sutil para heros do site. */
+.site-hero {
+    background:
+        radial-gradient(1100px 420px at 85% -10%, color-mix(in srgb, var(--color-primary) 14%, transparent), transparent 60%),
+        linear-gradient(180deg, var(--color-base-100) 0%, var(--color-base-200) 100%);
+}
+
+/* Sidebar colapsada — centraliza ícones dos itens de menu */
+.sidebar-collapsed .menu li > * {
+    justify-content: center !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+/* Respeita a preferência do sistema por menos animações */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}

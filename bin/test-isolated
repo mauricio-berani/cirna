@@ -1,0 +1,32 @@
+#!/usr/bin/env sh
+set -eu
+
+cd "$(dirname "$0")/.."
+
+lock_dir="${TMPDIR:-/tmp}/base-app-test-isolated.lock"
+
+if ! mkdir "$lock_dir" 2>/dev/null; then
+  echo "Refusing to run tests: another isolated test run is already in progress." >&2
+  exit 1
+fi
+
+cleanup() {
+  rmdir "$lock_dir" 2>/dev/null || true
+}
+
+trap cleanup EXIT INT TERM
+
+if [ ! -f .env.testing ]; then
+  echo "Refusing to run tests: .env.testing not found." >&2
+  exit 1
+fi
+
+db_connection="$(grep '^DB_CONNECTION=' .env.testing | cut -d= -f2- || true)"
+db_database="$(grep '^DB_DATABASE=' .env.testing | cut -d= -f2- || true)"
+
+if [ "${db_connection:-}" != "sqlite" ] || [ "${db_database:-}" != ":memory:" ]; then
+  echo "Refusing to run tests: isolated tests require DB_CONNECTION=sqlite and DB_DATABASE=:memory: in .env.testing." >&2
+  exit 1
+fi
+
+exec docker compose run --rm --no-deps app-test php artisan test "$@"

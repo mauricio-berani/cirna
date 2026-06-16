@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+set -eu
+
+cd "$(dirname "$0")/.."
+echo "Tests are blocked in the current application environment." >&2
+echo "Use ./bin/test-isolated only after explicitly validating the isolated test service configuration." >&2
+exit 1
