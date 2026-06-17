@@ -3,6 +3,7 @@
     'title' => '',
     'subtitle' => null,
     'align' => 'left', // left | center
+    'index' => null,   // ex.: "01"
 ])
 
 <div @class([
@@ -10,17 +11,17 @@
     'mx-auto text-center' => $align === 'center',
 ])>
     @if ($eyebrow)
-        <span class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-primary">
-            <span class="h-px w-6 bg-primary"></span>{{ $eyebrow }}
+        <span @class(['site-kicker', 'justify-center' => $align === 'center'])>
+            @if ($index)<span class="site-index">{{ $index }}</span>@endif{{ $eyebrow }}
         </span>
     @endif
 
-    <h2 class="mt-3 text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-base-content">
+    <h2 class="mt-4 text-3xl sm:text-4xl lg:text-[2.6rem] font-extrabold leading-[1.05] text-base-content">
         {{ $title }}
     </h2>
 
     @if ($subtitle)
-        <p class="mt-4 text-base sm:text-lg leading-relaxed text-base-content/70">
+        <p class="mt-4 text-base sm:text-lg leading-relaxed text-base-content/65">
             {{ $subtitle }}
         </p>
     @endif

@@ -9,6 +9,7 @@
     <img src="{{ asset('assets/cirna/site/'.$image) }}" alt="{{ $title }}" loading="lazy"
         width="1280" height="800" class="absolute inset-0 w-full h-full object-cover">
     <div class="absolute inset-0 bg-gradient-to-r from-secondary/95 via-secondary/70 to-secondary/20"></div>
+    <div class="absolute inset-0 blueprint opacity-30"></div>
 
     <div class="relative h-full flex items-center">
         <div class="mx-auto max-w-7xl w-full px-4 lg:px-8">

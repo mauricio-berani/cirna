@@ -4,20 +4,17 @@
         <div class="mx-auto max-w-7xl px-4 lg:px-8 py-16 sm:py-20 lg:py-28">
             <div class="grid gap-12 lg:grid-cols-2 lg:items-center">
                 <div class="site-reveal">
-                    <span class="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 text-xs sm:text-sm font-bold uppercase tracking-wider text-primary">
-                        <x-icon name="o-check-badge" class="w-4 h-4" /> Certificação {{ config('client.certification') }}
-                    </span>
+                    <span class="site-kicker">Desde {{ config('client.founded_year') }} · {{ config('client.city') }}/{{ config('client.state') }}</span>
 
-                    <h1 class="mt-6 text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-base-content leading-[1.05]">
+                    <h1 class="mt-5 text-[2.75rem] sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-base-content leading-[0.98]">
                         Moldes e injeção de
                         <span class="text-primary">plásticos</span>
                         com precisão
                     </h1>
 
-                    <p class="mt-6 max-w-xl text-base sm:text-lg leading-relaxed text-base-content/70">
-                        Desde {{ config('client.founded_year') }}, a Cirna desenvolve produtos, fabrica moldes e injeta
-                        peças plásticas para os mais diversos segmentos da indústria — com qualidade garantida e
-                        compromisso com prazos.
+                    <p class="mt-6 max-w-xl text-base sm:text-lg leading-relaxed text-base-content/65">
+                        Desenvolvemos produtos, fabricamos moldes e injetamos peças plásticas para os mais diversos
+                        segmentos da indústria — com qualidade certificada e compromisso com prazos.
                     </p>
 
                     <div class="mt-8 flex flex-col sm:flex-row gap-3">
@@ -31,19 +28,19 @@
                         </a>
                     </div>
 
-                    {{-- Estatísticas --}}
-                    <dl class="mt-12 grid grid-cols-3 gap-4 max-w-lg">
-                        <div>
-                            <dt class="text-3xl sm:text-4xl font-extrabold text-primary">+{{ $yearsInMarket }}</dt>
-                            <dd class="mt-1 text-xs sm:text-sm text-base-content/60">anos de mercado</dd>
+                    {{-- Estatísticas com divisórias hairline --}}
+                    <dl class="mt-12 grid grid-cols-3 max-w-lg divide-x divide-base-300/70">
+                        <div class="pr-4">
+                            <dt class="font-display text-4xl sm:text-5xl font-extrabold text-base-content tabular-nums">+{{ $yearsInMarket }}</dt>
+                            <dd class="mt-1 text-xs sm:text-sm text-base-content/55">anos de mercado</dd>
                         </div>
-                        <div>
-                            <dt class="text-3xl sm:text-4xl font-extrabold text-primary">8+</dt>
-                            <dd class="mt-1 text-xs sm:text-sm text-base-content/60">segmentos atendidos</dd>
+                        <div class="px-4">
+                            <dt class="font-display text-4xl sm:text-5xl font-extrabold text-base-content tabular-nums">8+</dt>
+                            <dd class="mt-1 text-xs sm:text-sm text-base-content/55">segmentos atendidos</dd>
                         </div>
-                        <div>
-                            <dt class="text-3xl sm:text-4xl font-extrabold text-primary">100%</dt>
-                            <dd class="mt-1 text-xs sm:text-sm text-base-content/60">foco em qualidade</dd>
+                        <div class="pl-4">
+                            <dt class="font-display text-4xl sm:text-5xl font-extrabold text-base-content tabular-nums">100%</dt>
+                            <dd class="mt-1 text-xs sm:text-sm text-base-content/55">foco em qualidade</dd>
                         </div>
                     </dl>
                 </div>
@@ -74,6 +71,12 @@
                                 <p class="text-sm font-bold text-base-content">{{ config('client.certification') }}</p>
                             </div>
                         </div>
+
+                        {{-- Selo EST. 1972 --}}
+                        <div class="site-seal absolute -bottom-6 right-6 w-20 h-20 bg-base-100 shadow-lg">
+                            <span class="text-[0.55rem] font-bold uppercase tracking-[0.2em] text-base-content/55">Est.</span>
+                            <span class="font-display text-2xl font-extrabold text-primary tabular-nums">1972</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -84,6 +87,7 @@
     <section class="bg-base-100">
         <div class="mx-auto max-w-7xl px-4 lg:px-8 py-16 sm:py-20 lg:py-24">
             <x-site.section-heading
+                index="01"
                 eyebrow="O que fazemos"
                 title="Uma solução completa em plásticos"
                 subtitle="Do conceito à peça final, integramos desenvolvimento, ferramentaria e injeção em um só fornecedor." />
@@ -120,6 +124,7 @@
             <div class="grid gap-12 lg:grid-cols-2 lg:items-center">
                 <div>
                     <x-site.section-heading
+                        index="02"
                         eyebrow="Quem somos"
                         title="Mais de meio século transformando plástico em soluções"
                         subtitle="A Cirna iniciou suas atividades em 1972 na fabricação de moldes e, ao longo dos anos, incorporou a injeção de peças plásticas — tornando-se um parceiro completo para o desenvolvimento de produtos." />
@@ -157,13 +162,12 @@
     <section class="bg-base-100">
         <div class="mx-auto max-w-7xl px-4 lg:px-8 py-16 sm:py-20">
             <div class="rounded-3xl bg-secondary text-secondary-content p-8 sm:p-12 lg:p-16 relative overflow-hidden">
+                <div class="absolute inset-0 blueprint opacity-40"></div>
                 <div class="absolute -bottom-20 -left-20 w-72 h-72 rounded-full bg-primary/20 blur-3xl"></div>
                 <div class="relative grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
                     <div class="max-w-2xl">
-                        <span class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-primary">
-                            <span class="h-px w-6 bg-primary"></span>Qualidade
-                        </span>
-                        <h2 class="mt-4 text-2xl sm:text-3xl lg:text-4xl font-extrabold">
+                        <span class="site-kicker">Qualidade</span>
+                        <h2 class="mt-4 text-3xl sm:text-4xl lg:text-[2.6rem] font-extrabold leading-[1.05]">
                             Certificação {{ config('client.certification') }}
                         </h2>
                         <p class="mt-4 text-secondary-content/75 leading-relaxed">
@@ -185,17 +189,21 @@
     <section class="bg-base-200">
         <div class="mx-auto max-w-7xl px-4 lg:px-8 py-16 sm:py-20">
             <x-site.section-heading align="center"
+                index="03"
                 eyebrow="Clientes"
                 title="Empresas que confiam na Cirna"
                 subtitle="Fornecemos componentes plásticos para indústrias de referência nos segmentos automotivo, rodoviário e mais." />
 
-            <div class="mt-12 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-                @foreach ($clients as $client)
-                    <div class="flex items-center justify-center rounded-2xl bg-base-100 border border-base-300/60 p-6 h-28">
-                        <img src="{{ asset('assets/cirna/clientes/'.$client['logo']) }}" alt="{{ $client['name'] }}"
-                            loading="lazy" class="client-logo max-h-12 w-auto object-contain">
-                    </div>
-                @endforeach
+            <div class="marquee mt-12">
+                <div class="marquee__track gap-4 py-2">
+                    @foreach (array_merge($clients, $clients) as $client)
+                        <div class="flex items-center justify-center shrink-0 w-44 h-24 rounded-2xl bg-base-100 border border-base-300/60 px-6"
+                            aria-hidden="{{ $loop->index >= count($clients) ? 'true' : 'false' }}">
+                            <img src="{{ asset('assets/cirna/clientes/'.$client['logo']) }}" alt="{{ $client['name'] }}"
+                                loading="lazy" class="client-logo max-h-10 w-auto object-contain">
+                        </div>
+                    @endforeach
+                </div>
             </div>
         </div>
     </section>

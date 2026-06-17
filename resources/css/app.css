@@ -790,8 +790,50 @@ html[data-theme="dark"] .badge-error {
 /* ----- Site institucional público ----- */
 [x-cloak] { display: none !important; }
 
+/* (O @font-face do Archivo é injetado inline no layout público com asset() + nonce,
+   para resolver corretamente sob o Vite dev server e a CSP font-src 'self'.) */
+
 .site-shell {
     scroll-behavior: smooth;
+}
+
+/* Tipografia: títulos com a fonte display, corpo com a sans do sistema. */
+.site-shell h1,
+.site-shell h2,
+.site-shell h3,
+.site-shell .font-display {
+    font-family: 'Archivo', ui-sans-serif, system-ui, sans-serif;
+    letter-spacing: -0.022em;
+    font-feature-settings: "ss01";
+}
+
+/* Kicker editorial (substitui o "eyebrow" genérico). */
+.site-kicker {
+    @apply inline-flex items-center gap-3 text-[0.7rem] font-bold uppercase tracking-[0.28em] text-primary;
+}
+.site-kicker::before {
+    content: "";
+    @apply h-px w-8 bg-primary;
+}
+
+/* Numeral de seção (estilo revista). */
+.site-index {
+    font-family: 'Archivo', sans-serif;
+    @apply text-sm font-bold tabular-nums text-primary/80;
+}
+
+/* Textura de "blueprint" para faixas escuras (remete a engenharia/moldes). */
+.blueprint {
+    background-image:
+        linear-gradient(to right, color-mix(in srgb, var(--color-secondary-content) 7%, transparent) 1px, transparent 1px),
+        linear-gradient(to bottom, color-mix(in srgb, var(--color-secondary-content) 7%, transparent) 1px, transparent 1px);
+    background-size: 26px 26px;
+}
+
+/* Selo "EST. 1972". */
+.site-seal {
+    @apply inline-flex flex-col items-center justify-center rounded-full border text-center leading-none;
+    border-color: color-mix(in srgb, var(--color-primary) 45%, transparent);
 }
 
 /* Animação suave de entrada de seções (respeita prefers-reduced-motion no bloco global acima). */
@@ -817,11 +859,51 @@ html[data-theme="dark"] .badge-error {
     transform: translateY(-2px);
 }
 
-/* Gradiente sutil para heros do site. */
+/* Gradiente sutil + fina malha técnica para heros do site. */
 .site-hero {
+    position: relative;
     background:
-        radial-gradient(1100px 420px at 85% -10%, color-mix(in srgb, var(--color-primary) 14%, transparent), transparent 60%),
+        radial-gradient(1100px 420px at 85% -10%, color-mix(in srgb, var(--color-primary) 12%, transparent), transparent 60%),
         linear-gradient(180deg, var(--color-base-100) 0%, var(--color-base-200) 100%);
+}
+.site-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+        linear-gradient(to right, color-mix(in srgb, var(--color-base-content) 4%, transparent) 1px, transparent 1px),
+        linear-gradient(to bottom, color-mix(in srgb, var(--color-base-content) 4%, transparent) 1px, transparent 1px);
+    background-size: 32px 32px;
+    mask-image: radial-gradient(1000px 500px at 80% 0%, #000 0%, transparent 70%);
+}
+
+/* Marquee de logos de clientes (pausa no hover; respeita reduced-motion). */
+@keyframes site-marquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+}
+.marquee {
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+    mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+}
+.marquee__track {
+    display: flex;
+    width: max-content;
+    animation: site-marquee 38s linear infinite;
+}
+.marquee:hover .marquee__track {
+    animation-play-state: paused;
+}
+@media (prefers-reduced-motion: reduce) {
+    .marquee__track { animation: none; flex-wrap: wrap; justify-content: center; }
+}
+
+/* Cartão com hairline (menos sombra, mais refinamento). */
+.site-card {
+    @apply rounded-2xl border bg-base-100;
+    border-color: color-mix(in srgb, var(--color-base-content) 10%, transparent);
 }
 
 /* Sidebar colapsada — centraliza ícones dos itens de menu */
