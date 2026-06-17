@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c3ccf285ac910273fcb5987291b86ac7",
+    "content-hash": "2337db492492747044ba1039e9451197",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -8185,29 +8185,29 @@
         },
         {
             "name": "lucascudo/laravel-pt-br-localization",
-            "version": "v2.2.5",
+            "version": "v3.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/lucascudo/laravel-pt-BR-localization.git",
-                "reference": "446a6b76f26179a95c38a5ef5efa917320412873"
+                "reference": "5133b5c315a49cb0bbb2fc14cedf0031f003521e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/lucascudo/laravel-pt-BR-localization/zipball/446a6b76f26179a95c38a5ef5efa917320412873",
-                "reference": "446a6b76f26179a95c38a5ef5efa917320412873",
+                "url": "https://api.github.com/repos/lucascudo/laravel-pt-BR-localization/zipball/5133b5c315a49cb0bbb2fc14cedf0031f003521e",
+                "reference": "5133b5c315a49cb0bbb2fc14cedf0031f003521e",
                 "shasum": ""
             },
             "type": "library",
             "extra": {
                 "laravel": {
                     "providers": [
-                        "Lucascudo\\LaravelPtBRLocalization\\LaravelPtBRLocalizationServiceProvider"
+                        "Lucascudo\\LaravelPtBrLocalization\\LaravelPtBrLocalizationServiceProvider"
                     ]
                 }
             },
             "autoload": {
                 "psr-4": {
-                    "Lucascudo\\LaravelPtBRLocalization\\": "src/"
+                    "Lucascudo\\LaravelPtBrLocalization\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -8224,7 +8224,7 @@
             "homepage": "https://github.com/lucascudo/laravel-pt-br-localization",
             "support": {
                 "issues": "https://github.com/lucascudo/laravel-pt-BR-localization/issues",
-                "source": "https://github.com/lucascudo/laravel-pt-BR-localization/tree/v2.2.5"
+                "source": "https://github.com/lucascudo/laravel-pt-BR-localization/tree/v3.0.4"
             },
             "funding": [
                 {
@@ -8240,7 +8240,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-10-15T21:33:59+00:00"
+            "time": "2025-03-06T11:03:14+00:00"
         },
         {
             "name": "mockery/mockery",
@@ -11583,5 +11583,5 @@
         "php": "^8.3"
     },
     "platform-dev": {},
-    "plugin-api-version": "2.6.0"
+    "plugin-api-version": "2.9.0"
 }
