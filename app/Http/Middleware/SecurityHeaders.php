@@ -43,8 +43,12 @@ class SecurityHeaders
         $imgSrc = array_merge(["'self'", 'data:', 'blob:'], $viteOrigins);
         $connectSrc = array_merge(["'self'"], $viteOrigins, $this->viteWebsocketOrigins());
 
+        // Alpine.js (embutido no Livewire e usado pelo MaryUI) avalia expressões
+        // de string como JS em runtime via new Function(), o que exige 'unsafe-eval'
+        // no script-src tanto em produção quanto em desenvolvimento.
+        $scriptSrc[] = "'unsafe-eval'";
+
         if (! app()->isProduction()) {
-            $scriptSrc[] = "'unsafe-eval'";
             $styleSrc[] = "'unsafe-inline'";
         }
 
