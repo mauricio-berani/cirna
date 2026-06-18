@@ -7,7 +7,7 @@
         ['route' => 'site.servicos', 'label' => 'Serviços'],
         \App\Models\Common\Setting::showClientsSection() ? ['route' => 'site.clientes', 'label' => 'Clientes'] : null,
         ['route' => 'site.trabalhe-conosco', 'label' => 'Trabalhe Conosco'],
-        ['route' => 'site.contato', 'label' => 'Contato'],
+        ['route' => 'site.contato', 'label' => 'Contatos'],
     ]));
 @endphp
 

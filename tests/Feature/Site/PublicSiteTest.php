@@ -41,6 +41,26 @@ class PublicSiteTest extends TestCase
         $this->get(route($routeName))->assertOk();
     }
 
+    public function test_the_harassment_channel_card_is_hidden_when_url_is_unset(): void
+    {
+        config(['client.harassment_channel_url' => '']);
+
+        $this->get(route('site.contato'))
+            ->assertOk()
+            ->assertDontSee('Canal de Assédio');
+    }
+
+    public function test_the_harassment_channel_card_links_in_a_new_tab_when_set(): void
+    {
+        config(['client.harassment_channel_url' => 'https://exemplo.com/canal-assedio']);
+
+        $this->get(route('site.contato'))
+            ->assertOk()
+            ->assertSee('Canal de Assédio')
+            ->assertSee('https://exemplo.com/canal-assedio')
+            ->assertSee('target="_blank"', false);
+    }
+
     public function test_contact_form_sends_an_email_on_valid_submission(): void
     {
         Mail::fake();

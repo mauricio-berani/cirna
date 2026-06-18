@@ -79,6 +79,20 @@
                         </div>
                         <x-icon name="o-arrow-right" class="w-5 h-5 text-base-content/40 ms-auto" />
                     </a>
+
+                    @if (config('client.harassment_channel_url'))
+                        <a href="{{ config('client.harassment_channel_url') }}" target="_blank" rel="noopener"
+                            class="flex items-center gap-4 rounded-2xl border border-base-300/70 bg-base-200 p-5 transition hover:border-primary/40">
+                            <span class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-secondary text-secondary-content shrink-0">
+                                <x-icon name="o-shield-exclamation" class="w-6 h-6" />
+                            </span>
+                            <div>
+                                <p class="font-semibold text-base-content">Canal de Assédio</p>
+                                <p class="text-sm text-base-content/65">Registre uma denúncia com sigilo e segurança</p>
+                            </div>
+                            <x-icon name="o-arrow-up-right" class="w-5 h-5 text-base-content/40 ms-auto" />
+                        </a>
+                    @endif
                 </div>
 
                 {{-- Formulário --}}

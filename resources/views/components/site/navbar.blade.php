@@ -4,7 +4,7 @@
         ['route' => 'site.empresa', 'label' => 'Empresa', 'group' => ['site.empresa', 'site.historico', 'site.qualidade']],
         ['route' => 'site.servicos', 'label' => 'Serviços'],
         \App\Models\Common\Setting::showClientsSection() ? ['route' => 'site.clientes', 'label' => 'Clientes'] : null,
-        ['route' => 'site.contato', 'label' => 'Contato'],
+        ['route' => 'site.contato', 'label' => 'Contatos'],
     ]));
 
     $isActive = fn (array $link) => request()->routeIs($link['group'] ?? $link['route']);

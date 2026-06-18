@@ -26,6 +26,10 @@ return [
     // Destino do formulário de contato.
     'contact_email' => env('CIRNA_CONTACT_EMAIL', 'contato@cirna.com.br'),
 
+    // Link do Canal de Assédio (abre em nova aba na página de Contatos).
+    // Deixe vazio para ocultar o card.
+    'harassment_channel_url' => env('CIRNA_HARASSMENT_CHANNEL_URL', ''),
+
     // Mapa (Google Maps embed por endereço, sem necessidade de API key).
     'maps_query' => 'Cirna Industria de Plasticos e Moldes, Rua Padre Raul Accorsi 900, Caxias do Sul RS',
 
