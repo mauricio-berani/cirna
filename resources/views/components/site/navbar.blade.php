@@ -1,11 +1,11 @@
 @php
-    $links = [
+    $links = array_values(array_filter([
         ['route' => 'site.home', 'label' => 'Home'],
         ['route' => 'site.empresa', 'label' => 'Empresa', 'group' => ['site.empresa', 'site.historico', 'site.qualidade']],
         ['route' => 'site.servicos', 'label' => 'Serviços'],
-        ['route' => 'site.clientes', 'label' => 'Clientes'],
+        \App\Models\Common\Setting::showClientsSection() ? ['route' => 'site.clientes', 'label' => 'Clientes'] : null,
         ['route' => 'site.contato', 'label' => 'Contato'],
-    ];
+    ]));
 
     $isActive = fn (array $link) => request()->routeIs($link['group'] ?? $link['route']);
 @endphp

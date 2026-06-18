@@ -1,14 +1,14 @@
 @php
     $year = now()->year;
-    $links = [
+    $links = array_values(array_filter([
         ['route' => 'site.empresa', 'label' => 'Empresa'],
         ['route' => 'site.historico', 'label' => 'Histórico'],
         ['route' => 'site.qualidade', 'label' => 'Qualidade'],
         ['route' => 'site.servicos', 'label' => 'Serviços'],
-        ['route' => 'site.clientes', 'label' => 'Clientes'],
+        \App\Models\Common\Setting::showClientsSection() ? ['route' => 'site.clientes', 'label' => 'Clientes'] : null,
         ['route' => 'site.trabalhe-conosco', 'label' => 'Trabalhe Conosco'],
         ['route' => 'site.contato', 'label' => 'Contato'],
-    ];
+    ]));
 @endphp
 
 <footer class="bg-secondary text-secondary-content/80">

@@ -151,4 +151,20 @@ class ClientManagementTest extends TestCase
             ->assertOk()
             ->assertSee('Empresas que confiam na Cirna');
     }
+
+    public function test_the_nav_hides_the_clients_link_by_default(): void
+    {
+        $this->get(route('site.home'))
+            ->assertOk()
+            ->assertDontSee(route('site.clientes'));
+    }
+
+    public function test_the_nav_shows_the_clients_link_when_the_flag_is_enabled(): void
+    {
+        Setting::put(Setting::KEY_SHOW_CLIENTS, '1');
+
+        $this->get(route('site.home'))
+            ->assertOk()
+            ->assertSee(route('site.clientes'));
+    }
 }
