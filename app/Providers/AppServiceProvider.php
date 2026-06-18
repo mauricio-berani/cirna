@@ -7,6 +7,8 @@ use App\Contracts\Auth\BuildsPermissionOptions;
 use App\Contracts\Auth\CreatesUsers;
 use App\Contracts\Auth\UpdatesProfiles;
 use App\Contracts\Auth\UpdatesUsers;
+use App\Contracts\Common\CreatesClients;
+use App\Contracts\Common\UpdatesClients;
 use App\Contracts\Common\UpdatesSettings;
 use App\Contracts\Navigation\BuildsSidebarMenus;
 use App\Contracts\Recruitment\CreatesApplications;
@@ -16,6 +18,8 @@ use App\Services\Auth\BuildPermissionOptionsService;
 use App\Services\Auth\CreateUserService;
 use App\Services\Auth\UpdateProfileService;
 use App\Services\Auth\UpdateUserService;
+use App\Services\Common\CreateClientService;
+use App\Services\Common\UpdateClientService;
 use App\Services\Common\UpdateSettingsService;
 use App\Services\Navigation\BuildSidebarMenusService;
 use App\Services\Recruitment\CreateApplicationService;
@@ -46,6 +50,8 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(SendsContactMessages::class, SendContactMessageService::class);
         $this->app->bind(CreatesApplications::class, CreateApplicationService::class);
         $this->app->bind(UpdatesSettings::class, UpdateSettingsService::class);
+        $this->app->bind(CreatesClients::class, CreateClientService::class);
+        $this->app->bind(UpdatesClients::class, UpdateClientService::class);
     }
 
     /**

@@ -18,6 +18,8 @@ class Setting extends BaseModel
 
     public const string KEY_ISO_CERTIFICATE = 'iso_certificate_path';
 
+    public const string KEY_SHOW_CLIENTS = 'show_clients_section';
+
     protected $table = self::TABLE;
 
     public static function get(string $key, ?string $default = null): ?string
@@ -48,5 +50,13 @@ class Setting extends BaseModel
     public static function isoCertificatePath(): ?string
     {
         return static::get(self::KEY_ISO_CERTIFICATE);
+    }
+
+    /**
+     * Exibir a seção de clientes na home? Oculta por padrão.
+     */
+    public static function showClientsSection(): bool
+    {
+        return static::get(self::KEY_SHOW_CLIENTS) === '1';
     }
 }

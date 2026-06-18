@@ -15,6 +15,11 @@ enum Permissions: string
     case MOUNT_APPLICATION = 'mount_application';
     case READ_APPLICATION = 'read_application';
     case DELETE_APPLICATION = 'delete_application';
+    case MOUNT_CLIENT = 'mount_client';
+    case READ_CLIENT = 'read_client';
+    case CREATE_CLIENT = 'create_client';
+    case UPDATE_CLIENT = 'update_client';
+    case DELETE_CLIENT = 'delete_client';
     case MOUNT_SETTING = 'mount_setting';
     case UPDATE_SETTING = 'update_setting';
     case VIEW_HORIZON = 'view_horizon';

@@ -12,5 +12,6 @@ return [
         'dashboard' => 'Dashboard',
         'profile' => 'Profile',
         'user' => 'Users',
+        'client' => 'Clients',
     ],
 ];

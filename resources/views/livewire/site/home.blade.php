@@ -186,6 +186,7 @@
     </section>
 
     {{-- ===== CLIENTES ===== --}}
+    @if ($showClients && $clients->isNotEmpty())
     <section class="bg-base-200">
         <div class="mx-auto max-w-7xl px-4 lg:px-8 py-16 sm:py-20">
             <x-site.section-heading align="center"
@@ -196,10 +197,10 @@
 
             <div class="marquee mt-12">
                 <div class="marquee__track gap-4 py-2">
-                    @foreach (array_merge($clients, $clients) as $client)
+                    @foreach ($clients->concat($clients) as $client)
                         <div class="flex items-center justify-center shrink-0 w-44 h-24 rounded-2xl bg-base-100 border border-base-300/60 px-6"
-                            aria-hidden="{{ $loop->index >= count($clients) ? 'true' : 'false' }}">
-                            <img src="{{ asset('assets/cirna/clientes/'.$client['logo']) }}" alt="{{ $client['name'] }}"
+                            aria-hidden="{{ $loop->index >= $clients->count() ? 'true' : 'false' }}">
+                            <img src="{{ $client->logoUrl() }}" alt="{{ $client->name }}"
                                 loading="lazy" class="client-logo max-h-10 w-auto object-contain">
                         </div>
                     @endforeach
@@ -207,6 +208,7 @@
             </div>
         </div>
     </section>
+    @endif
 
     {{-- ===== CTA FINAL ===== --}}
     <section class="bg-base-100">

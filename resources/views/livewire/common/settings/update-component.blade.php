@@ -17,6 +17,15 @@
 
                 <div class="col-span-12">
                     <hr class="my-2">
+                    <x-toggle
+                        label="{{ __('interface.identification.settings.show_clients_label') }}"
+                        hint="{{ __('interface.identification.settings.show_clients_hint') }}"
+                        wire:model="form.show_clients"
+                        right />
+                </div>
+
+                <div class="col-span-12">
+                    <hr class="my-2">
                     <h3 class="text-base font-semibold text-base-content">{{ __('fields.iso_certificate') }}</h3>
                     <p class="text-sm text-base-content/60 mb-3">{{ __('interface.identification.settings.iso_certificate_hint') }}</p>
 

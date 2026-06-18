@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Site;
 
+use App\Models\Common\Client;
 use Illuminate\Contracts\View\View;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Title;
@@ -14,7 +15,7 @@ class ClientesComponent extends Component
     public function render(): View
     {
         return view('livewire.site.clientes', [
-            'clients' => config('client.clients'),
+            'clients' => Client::query()->orderBy(Client::FIELD_NAME)->get(),
         ]);
     }
 }

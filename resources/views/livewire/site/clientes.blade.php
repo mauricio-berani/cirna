@@ -11,10 +11,10 @@
 
             <div class="mt-10 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
                 @foreach ($clients as $client)
-                    <a href="{{ $client['url'] }}" target="_blank" rel="noopener"
+                    <a @if ($client->url) href="{{ $client->url }}" target="_blank" rel="noopener" @endif
                         class="group flex items-center justify-center rounded-2xl bg-base-100 border border-base-300/60 p-6 sm:p-8 h-32 transition hover:border-primary/40 hover:shadow-md"
-                        aria-label="{{ $client['name'] }}">
-                        <img src="{{ asset('assets/cirna/clientes/'.$client['logo']) }}" alt="{{ $client['name'] }}"
+                        aria-label="{{ $client->name }}">
+                        <img src="{{ $client->logoUrl() }}" alt="{{ $client->name }}"
                             loading="lazy" class="client-logo max-h-14 w-auto object-contain">
                     </a>
                 @endforeach

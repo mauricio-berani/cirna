@@ -19,6 +19,12 @@ trait ManagesFilesTrait
 
     protected int $maxUploadSizeBytes = 5 * 1024 * 1024; // 5MB
 
+    /**
+     * Disco de armazenamento. Privado por padrão (servido via URL assinada);
+     * use 'public' para arquivos exibidos no site institucional (ex.: logos).
+     */
+    protected string $uploadDisk = 'private';
+
     public function uploadFile(mixed $file, ?string $existingFilePath = null, bool $unique = false): ?string
     {
         if (! $file) {
@@ -44,7 +50,7 @@ trait ManagesFilesTrait
         $directory = $this->normalizedFileDirectory();
         $fileName = $this->generateFileSlug($file->hashName(), $file->extension());
 
-        return $file->storeAs($directory, $fileName, 'private');
+        return $file->storeAs($directory, $fileName, $this->uploadDisk);
     }
 
     public function deleteFile(string $filePath): bool
@@ -53,7 +59,7 @@ trait ManagesFilesTrait
             return false;
         }
 
-        return Storage::disk('private')->delete($filePath);
+        return Storage::disk($this->uploadDisk)->delete($filePath);
     }
 
     protected function generateFileSlug(string $fileName, string $extension): string

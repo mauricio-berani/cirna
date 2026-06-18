@@ -10,12 +10,15 @@ class SettingsForm extends Form
 {
     public ?string $careers_email = null;
 
+    public bool $show_clients = false;
+
     public ?TemporaryUploadedFile $certificate = null;
 
     public function rules(): array
     {
         return [
             'careers_email' => ['nullable', 'email', 'max:160'],
+            'show_clients' => ['boolean'],
             'certificate' => [
                 'nullable',
                 'file',
@@ -38,6 +41,7 @@ class SettingsForm extends Form
     public function setModel(): void
     {
         $this->careers_email = Setting::get(Setting::KEY_CAREERS_EMAIL);
+        $this->show_clients = Setting::showClientsSection();
     }
 
     /**
@@ -49,6 +53,7 @@ class SettingsForm extends Form
 
         return [
             'careers_email' => $validated['careers_email'] ?: null,
+            'show_clients' => $validated['show_clients'] ? '1' : '0',
         ];
     }
 }

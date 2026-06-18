@@ -9,6 +9,7 @@ return [
     'document' => 'Documento',
     'email' => 'E-mail',
     'iso_certificate' => 'Certificado ISO (PDF)',
+    'logo' => 'Logo',
     'name' => 'Nome',
     'resume' => 'Currículo (PDF)',
     'notes' => 'Observações',
@@ -17,5 +18,6 @@ return [
     'phone' => 'Telefone',
     'role' => 'Cargo',
     'two_factor_code' => 'Código 2FA',
+    'url' => 'Site (URL)',
     'user' => 'Usuário',
 ];

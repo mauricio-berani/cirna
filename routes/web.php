@@ -8,6 +8,8 @@ use App\Livewire\Auth\Profile\UpdateComponent as ProfileUpdateComponent;
 use App\Livewire\Auth\TwoFactorChallenge;
 use App\Livewire\Auth\User\FormComponent as UserFormComponent;
 use App\Livewire\Auth\User\IndexComponent as UserIndexComponent;
+use App\Livewire\Common\Client\FormComponent as ClientFormComponent;
+use App\Livewire\Common\Client\IndexComponent as ClientIndexComponent;
 use App\Livewire\Common\Dashboard;
 use App\Livewire\Common\Settings\UpdateComponent as SettingsUpdateComponent;
 use App\Livewire\Recruitment\Application\IndexComponent as ApplicationIndexComponent;
@@ -68,5 +70,11 @@ Route::middleware(['auth', 'two-factor'])->group(function () {
     Route::prefix('candidaturas')->group(function () {
         Route::livewire('/', ApplicationIndexComponent::class)->name('candidaturas.index');
         Route::livewire('/{itemId}', ApplicationShowComponent::class)->name('candidaturas.show');
+    });
+
+    Route::prefix('gestao/clientes')->group(function () {
+        Route::livewire('/', ClientIndexComponent::class)->name('clientes.index');
+        Route::livewire('/create', ClientFormComponent::class)->name('clientes.create');
+        Route::livewire('/update/{itemId}', ClientFormComponent::class)->name('clientes.update');
     });
 });

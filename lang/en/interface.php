@@ -52,6 +52,22 @@ return [
                 'subtitle' => 'Details of the received application.',
             ],
         ],
+        'clients' => [
+            'title' => 'Clients',
+            'subtitle' => 'Manage the clients shown on the website.',
+            'modal_text' => 'the client',
+            'logo_hint' => 'Logo image (JPG, PNG, GIF or WebP, up to 5 MB).',
+            'logo_current' => 'Current logo',
+            'logo_upload' => 'Upload logo',
+            'create' => [
+                'title' => 'Register client',
+                'subtitle' => 'Register a new client.',
+            ],
+            'update' => [
+                'title' => 'Update client',
+                'subtitle' => 'Update an existing client.',
+            ],
+        ],
         'settings' => [
             'title' => 'Settings',
             'subtitle' => 'Manage the general system settings.',
@@ -59,6 +75,8 @@ return [
             'iso_certificate_hint' => 'PDF shown on the website Quality page. Uploading a new one replaces the current file.',
             'iso_certificate_current' => 'View current certificate',
             'iso_certificate_upload' => 'Upload new certificate (PDF)',
+            'show_clients_label' => 'Show clients section on home',
+            'show_clients_hint' => 'When enabled, the clients section appears on the home page. Hidden by default.',
         ],
     ],
     'collapse' => 'Collapse',

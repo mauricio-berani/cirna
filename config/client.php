@@ -32,15 +32,6 @@ return [
     // Certificação exibida no site.
     'certification' => 'ISO 9001:2015',
 
-    // Clientes exibidos no site (logo em public/assets/cirna/clientes).
-    'clients' => [
-        ['name' => 'Marcopolo', 'logo' => 'marcopolo.png', 'url' => 'https://www.marcopolo.com.br/'],
-        ['name' => 'Agrale', 'logo' => 'agrale.png', 'url' => 'https://www.agrale.com.br/'],
-        ['name' => 'Neobus', 'logo' => 'neobus.png', 'url' => 'https://www.neobus.com.br/'],
-        ['name' => 'GKN Driveline', 'logo' => 'gkn.png', 'url' => 'https://www.gkndriveline.com/'],
-        ['name' => 'Spheros', 'logo' => 'spheros.png', 'url' => 'https://www.spheros.com.br/'],
-        ['name' => 'RGB do Brasil', 'logo' => 'rgb.png', 'url' => 'https://www.rgb.ind.br/'],
-        ['name' => 'Espumatec', 'logo' => 'espumatec.png', 'url' => 'https://www.espumatec.com.br/'],
-        ['name' => 'Danna', 'logo' => 'danna.png', 'url' => 'https://www.danna.com.br/'],
-    ],
+    // Os clientes exibidos no site agora são gerenciados pelo painel (módulo Clientes)
+    // e persistidos na tabela `clients`. Veja App\Models\Common\Client e ClientSeeder.
 ];

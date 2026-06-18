@@ -21,6 +21,10 @@ class UpdateSettingsService implements UpdatesSettings
             if (array_key_exists('iso_certificate_path', $payload)) {
                 Setting::put(Setting::KEY_ISO_CERTIFICATE, $payload['iso_certificate_path']);
             }
+
+            if (array_key_exists('show_clients', $payload)) {
+                Setting::put(Setting::KEY_SHOW_CLIENTS, $payload['show_clients']);
+            }
         });
     }
 }

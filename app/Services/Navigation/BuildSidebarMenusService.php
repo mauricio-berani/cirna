@@ -36,6 +36,14 @@ class BuildSidebarMenusService implements BuildsSidebarMenus
                 'is_active' => str_starts_with($currentRoute, 'candidaturas'),
             ],
             [
+                'title' => __('interface.identification.clients.title'),
+                'link' => route('clientes.index'),
+                'route' => 'clientes.index',
+                'permission' => Permissions::MOUNT_CLIENT->value,
+                'icon' => 'o-building-office-2',
+                'is_active' => str_starts_with($currentRoute, 'clientes'),
+            ],
+            [
                 'title' => __('interface.identification.settings.title'),
                 'link' => route('settings'),
                 'route' => 'settings',
