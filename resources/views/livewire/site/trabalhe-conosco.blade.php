@@ -11,7 +11,7 @@
                 {{-- Por que trabalhar na Cirna --}}
                 <div class="lg:col-span-2 space-y-6">
                     <div class="overflow-hidden rounded-2xl shadow-lg ring-1 ring-base-300/60">
-                        <img src="{{ asset('assets/cirna/site/ferramentaria.jpg') }}"
+                        <img src="{{ asset('assets/cirna/site/cirna-matrizaria-centros-usinagem.jpg') }}"
                             alt="Usinagem de precisão na ferramentaria da Cirna" loading="lazy"
                             width="1280" height="800" class="w-full h-52 sm:h-60 object-cover">
                     </div>

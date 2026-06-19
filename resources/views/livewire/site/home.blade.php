@@ -49,7 +49,7 @@
                 <div class="site-reveal lg:justify-self-end w-full max-w-lg">
                     <div class="relative">
                         <div class="overflow-hidden rounded-3xl shadow-xl ring-1 ring-base-300/60">
-                            <img src="{{ asset('assets/cirna/site/producao.jpg') }}"
+                            <img src="{{ asset('assets/cirna/site/cirna-parque-injetoras.jpg') }}"
                                 alt="Linha de produção industrial da Cirna"
                                 width="1280" height="800"
                                 class="w-full h-80 sm:h-[26rem] object-cover">
@@ -57,7 +57,7 @@
 
                         {{-- Imagem sobreposta: molde de injeção --}}
                         <div class="absolute -bottom-8 -left-4 sm:-left-10 w-40 sm:w-56 overflow-hidden rounded-2xl shadow-lg ring-4 ring-base-100 hidden sm:block">
-                            <img src="{{ asset('assets/cirna/site/molde.jpg') }}"
+                            <img src="{{ asset('assets/cirna/site/cirna-usinagem-cnc-moldes.jpg') }}"
                                 alt="Molde de injeção fabricado pela Cirna"
                                 width="640" height="400"
                                 class="w-full h-36 sm:h-44 object-cover">
@@ -94,9 +94,9 @@
 
             <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                 @foreach ([
-                    ['icon' => 'o-light-bulb', 'image' => 'desenvolvimento.jpg', 'title' => 'Desenvolvimento de produtos', 'desc' => 'Apoiamos a criação de novos produtos, da ideia ao protótipo, pensando em manufaturabilidade e custo.'],
-                    ['icon' => 'o-wrench-screwdriver', 'image' => 'molde.jpg', 'title' => 'Fabricação de moldes', 'desc' => 'Nossa origem. Projetamos e fabricamos moldes de injeção sob medida, com precisão e durabilidade.'],
-                    ['icon' => 'o-beaker', 'image' => 'injecao.jpg', 'title' => 'Injeção de plásticos', 'desc' => 'Produzimos peças plásticas injetadas como componentes para diversos segmentos de mercado.'],
+                    ['icon' => 'o-light-bulb', 'image' => 'cirna-painel-controle-injetora.jpg', 'title' => 'Desenvolvimento de produtos', 'desc' => 'Apoiamos a criação de novos produtos, da ideia ao protótipo, pensando em manufaturabilidade e custo.'],
+                    ['icon' => 'o-wrench-screwdriver', 'image' => 'cirna-usinagem-cnc-moldes.jpg', 'title' => 'Fabricação de moldes', 'desc' => 'Nossa origem. Projetamos e fabricamos moldes de injeção sob medida, com precisão e durabilidade.'],
+                    ['icon' => 'o-beaker', 'image' => 'cirna-injetora-plasticos.jpg', 'title' => 'Injeção de plásticos', 'desc' => 'Produzimos peças plásticas injetadas como componentes para diversos segmentos de mercado.'],
                 ] as $item)
                     <div class="group overflow-hidden rounded-2xl border border-base-300/70 bg-base-100 transition hover:border-primary/40 hover:shadow-lg">
                         <div class="relative h-44 overflow-hidden">
@@ -134,7 +134,7 @@
                     </a>
 
                     <div class="mt-8 overflow-hidden rounded-2xl shadow-lg ring-1 ring-base-300/60">
-                        <img src="{{ asset('assets/cirna/site/fabrica.jpg') }}"
+                        <img src="{{ asset('assets/cirna/site/cirna-ferramentaria-fabricacao-moldes.jpg') }}"
                             alt="Interior do parque fabril" loading="lazy" width="1280" height="800"
                             class="w-full h-52 sm:h-64 object-cover">
                     </div>

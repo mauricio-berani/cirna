@@ -64,7 +64,7 @@
     </section>
 
     <x-site.media-band
-        image="precisao.jpg"
+        image="cirna-linha-injecao-plasticos.jpg"
         eyebrow="Precisão"
         title="Controle em cada detalhe"
         text="Da fabricação do molde à peça injetada, o compromisso com a qualidade está presente em todas as etapas." />

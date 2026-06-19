@@ -80,8 +80,73 @@
     </section>
 
     <x-site.media-band
-        image="fabrica.jpg"
+        image="cirna-parque-injetoras.jpg"
         eyebrow="Parque fabril"
-        title="Estrutura para produzir com qualidade"
-        text="Ferramentaria e injeção integradas, com processos controlados para atender diferentes segmentos da indústria." />
+        title="Estrutura para produzir do molde à peça"
+        text="Ferramentaria e injeção integradas sob o mesmo teto, com processos controlados para atender diversos segmentos da indústria." />
+
+    {{-- ===== GALERIA PARQUE FABRIL ===== --}}
+    <section id="parque-fabril" class="bg-base-200 border-t border-base-300/70">
+        <div class="mx-auto max-w-7xl px-4 lg:px-8 py-16 sm:py-20">
+            <x-site.section-heading
+                eyebrow="Nossos setores"
+                title="Conheça por dentro a fábrica"
+                subtitle="Imagens reais da nossa matrizaria e do setor de injeção de plásticos." />
+
+            @php
+                $sectors = [
+                    [
+                        'name' => 'Matrizaria',
+                        'icon' => 'o-wrench-screwdriver',
+                        'desc' => 'Projeto e fabricação de moldes',
+                        'photos' => [
+                            ['img' => 'cirna-usinagem-cnc-moldes.jpg', 'caption' => 'Centro de usinagem CNC'],
+                            ['img' => 'cirna-matrizaria-centros-usinagem.jpg', 'caption' => 'Usinagem de precisão'],
+                            ['img' => 'cirna-ferramentaria-fabricacao-moldes.jpg', 'caption' => 'Ferramentaria própria'],
+                        ],
+                    ],
+                    [
+                        'name' => 'Injeção de Plásticos',
+                        'icon' => 'o-beaker',
+                        'desc' => 'Produção de peças plásticas injetadas',
+                        'photos' => [
+                            ['img' => 'cirna-injetora-plasticos.jpg', 'caption' => 'Injeção de peças plásticas'],
+                            ['img' => 'cirna-painel-controle-injetora.jpg', 'caption' => 'Controle de processo'],
+                            ['img' => 'cirna-linha-injecao-plasticos.jpg', 'caption' => 'Linha de produção'],
+                        ],
+                    ],
+                ];
+            @endphp
+
+            @foreach ($sectors as $sector)
+                <div class="mt-12 first:mt-12">
+                    <div class="flex items-center gap-4">
+                        <span class="inline-flex items-center justify-center w-11 h-11 rounded-xl bg-primary/10 text-primary shrink-0">
+                            <x-icon name="{{ $sector['icon'] }}" class="w-6 h-6" />
+                        </span>
+                        <div>
+                            <h3 class="font-display text-xl font-bold text-base-content">{{ $sector['name'] }}</h3>
+                            <p class="text-sm text-base-content/55">{{ $sector['desc'] }}</p>
+                        </div>
+                    </div>
+
+                    <div class="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                        @foreach ($sector['photos'] as $photo)
+                            <figure class="group relative overflow-hidden rounded-2xl border border-base-300/60">
+                                <img src="{{ asset('assets/cirna/site/'.$photo['img']) }}"
+                                    alt="{{ $photo['caption'] }} — {{ $sector['name'] }} | Cirna"
+                                    loading="lazy" width="1504" height="992"
+                                    class="aspect-[4/3] w-full object-cover transition duration-500 group-hover:scale-105">
+                                <div class="absolute inset-0 bg-gradient-to-t from-secondary/85 via-secondary/10 to-transparent"></div>
+                                <figcaption class="absolute inset-x-0 bottom-0 p-4 flex items-center gap-2">
+                                    <span class="h-1.5 w-1.5 rounded-full bg-primary shrink-0"></span>
+                                    <span class="text-sm font-semibold text-secondary-content">{{ $photo['caption'] }}</span>
+                                </figcaption>
+                            </figure>
+                        @endforeach
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    </section>
 </div>

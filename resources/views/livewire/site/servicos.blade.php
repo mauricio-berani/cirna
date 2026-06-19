@@ -11,21 +11,21 @@
             @foreach ([
                 [
                     'icon' => 'o-light-bulb',
-                    'image' => 'desenvolvimento.jpg',
+                    'image' => 'cirna-painel-controle-injetora.jpg',
                     'title' => 'Desenvolvimento de novos produtos',
                     'desc' => 'Transformamos ideias em produtos viáveis, considerando função, custo e manufaturabilidade desde o início do projeto.',
                     'features' => ['Análise de viabilidade', 'Apoio ao projeto da peça', 'Prototipagem', 'Otimização para injeção'],
                 ],
                 [
                     'icon' => 'o-wrench-screwdriver',
-                    'image' => 'molde.jpg',
+                    'image' => 'cirna-usinagem-cnc-moldes.jpg',
                     'title' => 'Fabricação de moldes',
                     'desc' => 'Nossa origem desde 1972. Projetamos e fabricamos moldes de injeção sob medida, com precisão, durabilidade e manutenção.',
                     'features' => ['Projeto de moldes', 'Ferramentaria própria', 'Moldes sob medida', 'Manutenção e ajustes'],
                 ],
                 [
                     'icon' => 'o-beaker',
-                    'image' => 'injecao.jpg',
+                    'image' => 'cirna-injetora-plasticos.jpg',
                     'title' => 'Injeção de plásticos',
                     'desc' => 'Produzimos peças plásticas injetadas em escala, utilizadas como componentes para os mais diversos segmentos de mercado.',
                     'features' => ['Produção seriada', 'Controle de qualidade', 'Diversos polímeros', 'Componentes técnicos'],

@@ -62,7 +62,7 @@
     </section>
 
     <x-site.media-band
-        image="producao.jpg"
+        image="cirna-parque-injetoras.jpg"
         eyebrow="Desde 1972"
         title="Tradição que evolui com a indústria"
         text="Da ferramentaria à injeção em escala, mais de cinco décadas aperfeiçoando processos e atendendo novos mercados." />
