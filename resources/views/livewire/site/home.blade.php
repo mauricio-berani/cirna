@@ -13,8 +13,8 @@
                     </h1>
 
                     <p class="mt-6 max-w-xl text-base sm:text-lg leading-relaxed text-base-content/65">
-                        Desenvolvemos produtos, fabricamos moldes e injetamos peças plásticas para os mais diversos
-                        segmentos da indústria — com qualidade certificada e compromisso com prazos.
+                        Desenvolvemos produtos, fabricamos moldes e injetamos peças plásticas para diversos
+                        segmentos da indústria — com qualidade certificada pela norma ISO 9001:2015.
                     </p>
 
                     <div class="mt-8 flex flex-col sm:flex-row gap-3">
@@ -35,12 +35,12 @@
                             <dd class="mt-1 text-xs sm:text-sm text-base-content/55">anos de mercado</dd>
                         </div>
                         <div class="px-4">
-                            <dt class="font-display text-4xl sm:text-5xl font-extrabold text-base-content tabular-nums">8+</dt>
-                            <dd class="mt-1 text-xs sm:text-sm text-base-content/55">segmentos atendidos</dd>
+                            <dt class="font-display text-4xl sm:text-5xl font-extrabold text-base-content tabular-nums">3</dt>
+                            <dd class="mt-1 text-xs sm:text-sm text-base-content/55">serviços integrados</dd>
                         </div>
                         <div class="pl-4">
-                            <dt class="font-display text-4xl sm:text-5xl font-extrabold text-base-content tabular-nums">100%</dt>
-                            <dd class="mt-1 text-xs sm:text-sm text-base-content/55">foco em qualidade</dd>
+                            <dt class="font-display text-2xl sm:text-3xl font-extrabold text-base-content mt-1">ISO 9001</dt>
+                            <dd class="mt-1 text-xs sm:text-sm text-base-content/55">qualidade certificada</dd>
                         </div>
                     </dl>
                 </div>
@@ -94,7 +94,7 @@
 
             <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                 @foreach ([
-                    ['icon' => 'o-light-bulb', 'image' => 'cirna-painel-controle-injetora.jpg', 'title' => 'Desenvolvimento de produtos', 'desc' => 'Apoiamos a criação de novos produtos, da ideia ao protótipo, pensando em manufaturabilidade e custo.'],
+                    ['icon' => 'o-light-bulb', 'image' => 'cirna-painel-controle-injetora.jpg', 'title' => 'Desenvolvimento de produtos', 'desc' => 'Apoiamos a criação de novos produtos, da concepção à produção, com foco em manufaturabilidade e custo.'],
                     ['icon' => 'o-wrench-screwdriver', 'image' => 'cirna-usinagem-cnc-moldes.jpg', 'title' => 'Fabricação de moldes', 'desc' => 'Nossa origem. Projetamos e fabricamos moldes de injeção sob medida, com precisão e durabilidade.'],
                     ['icon' => 'o-beaker', 'image' => 'cirna-injetora-plasticos.jpg', 'title' => 'Injeção de plásticos', 'desc' => 'Produzimos peças plásticas injetadas como componentes para diversos segmentos de mercado.'],
                 ] as $item)

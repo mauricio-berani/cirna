@@ -13,22 +13,22 @@
                     'icon' => 'o-light-bulb',
                     'image' => 'cirna-painel-controle-injetora.jpg',
                     'title' => 'Desenvolvimento de novos produtos',
-                    'desc' => 'Transformamos ideias em produtos viáveis, considerando função, custo e manufaturabilidade desde o início do projeto.',
-                    'features' => ['Análise de viabilidade', 'Apoio ao projeto da peça', 'Prototipagem', 'Otimização para injeção'],
+                    'desc' => 'Apoiamos a criação de novos produtos, considerando função, custo e manufaturabilidade desde o início do projeto.',
+                    'features' => ['Desenvolvimento de novos produtos', 'Apoio ao projeto da peça', 'Foco em manufaturabilidade', 'Parceria do projeto à produção'],
                 ],
                 [
                     'icon' => 'o-wrench-screwdriver',
                     'image' => 'cirna-usinagem-cnc-moldes.jpg',
                     'title' => 'Fabricação de moldes',
-                    'desc' => 'Nossa origem desde 1972. Projetamos e fabricamos moldes de injeção sob medida, com precisão, durabilidade e manutenção.',
-                    'features' => ['Projeto de moldes', 'Ferramentaria própria', 'Moldes sob medida', 'Manutenção e ajustes'],
+                    'desc' => 'Nossa origem desde 1972. Projetamos e fabricamos moldes de injeção sob medida em nossa própria ferramentaria.',
+                    'features' => ['Projeto de moldes', 'Ferramentaria própria', 'Moldes sob medida', 'Usinagem CNC'],
                 ],
                 [
                     'icon' => 'o-beaker',
                     'image' => 'cirna-injetora-plasticos.jpg',
                     'title' => 'Injeção de plásticos',
-                    'desc' => 'Produzimos peças plásticas injetadas em escala, utilizadas como componentes para os mais diversos segmentos de mercado.',
-                    'features' => ['Produção seriada', 'Controle de qualidade', 'Diversos polímeros', 'Componentes técnicos'],
+                    'desc' => 'Produzimos peças plásticas injetadas utilizadas como componentes para diversos segmentos de mercado.',
+                    'features' => ['Injeção de peças plásticas', 'Produção em escala', 'Componentes para diversos segmentos', 'Qualidade certificada ISO 9001'],
                 ],
             ] as $i => $servico)
                 <div class="grid gap-6 lg:gap-10 overflow-hidden rounded-3xl border border-base-300/70 bg-base-100 p-4 sm:p-6 lg:grid-cols-[20rem_1fr] lg:items-center">
@@ -65,12 +65,11 @@
                 title="Componentes para diversos mercados"
                 subtitle="Nossas peças plásticas equipam produtos de setores que exigem precisão e confiabilidade." />
 
-            <div class="mt-12 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+            <div class="mt-12 grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 @foreach ([
                     ['icon' => 'o-truck', 'label' => 'Automotivo'],
                     ['icon' => 'o-bolt', 'label' => 'Rodoviário'],
                     ['icon' => 'o-cog-6-tooth', 'label' => 'Autopeças'],
-                    ['icon' => 'o-home-modern', 'label' => 'Eletrodomésticos'],
                     ['icon' => 'o-cube', 'label' => 'Industrial'],
                 ] as $seg)
                     <div class="flex flex-col items-center text-center rounded-2xl bg-base-100 border border-base-300/60 p-6">

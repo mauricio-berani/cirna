@@ -73,7 +73,7 @@
             <div>
                 <h3 class="text-sm font-bold uppercase tracking-wider text-secondary-content">Atendimento</h3>
                 <p class="mt-4 text-sm text-secondary-content/70">
-                    Segunda a sexta<br>das 08h às 18h
+                    Fale com a nossa equipe sobre desenvolvimento de produtos, moldes e injeção de plásticos.
                 </p>
                 <a href="{{ route('site.contato') }}" wire:navigate
                     class="btn btn-primary btn-sm mt-5 rounded-full px-5 text-primary-content gap-2">
